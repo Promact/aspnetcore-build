@@ -26,4 +26,5 @@ RUN curl -OL https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sona
      ln -fs /root/sonar-scanner-3.0.3.778-linux/bin/sonar-scanner /usr/bin/sonar-scanner && \
      /usr/bin/sonar-scanner --version && rm -rf sonar-scanner-cli-3.0.3.778-linux.zip
 
+
 RUN npm i -g tslint typescript && which tslint
