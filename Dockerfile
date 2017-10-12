@@ -18,12 +18,3 @@ RUN apt-get update -qq && apt-get install -qqy \
     jq --no-install-recommends
 
 RUN curl -sSL https://get.docker.com/ | sh
-
-RUN pip install docker-compose
-
-RUN cd /root && curl -OL https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.0.3.778-linux.zip && \
-     unzip sonar-scanner-cli-3.0.3.778-linux.zip && \
-     ln -fs /root/sonar-scanner-3.0.3.778-linux/bin/sonar-scanner /usr/bin/sonar-scanner && \
-     rm -rf sonar-scanner-cli-3.0.3.778-linux.zip
-
-RUN npm i -g tslint typescript && which tslint
