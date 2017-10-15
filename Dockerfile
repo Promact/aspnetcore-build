@@ -1,4 +1,4 @@
-FROM microsoft/aspnetcore-build:1.1.2-jessie
+FROM microsoft/aspnetcore-build:1.1.4-jessie
 
 RUN curl -o- -L https://yarnpkg.com/install.sh | bash
 
@@ -11,10 +11,7 @@ RUN apt-get update -qq && apt-get install -qqy \
     curl \
     lxc \
     iptables \
-    bzip2 \
-    python-pip \
-    unzip \
-    libfontconfig \
+    bzip2 \    
     jq --no-install-recommends
 
 RUN curl -sSL https://get.docker.com/ | sh
