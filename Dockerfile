@@ -1,4 +1,4 @@
-FROM microsoft/aspnetcore-build:1.1.4-jessie
+FROM microsoft/aspnetcore-build:1.1
 
 RUN curl -o- -L https://yarnpkg.com/install.sh | bash
 
