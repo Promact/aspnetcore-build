@@ -12,6 +12,6 @@ RUN apt-get update -qq && apt-get install -qqy \
     lxc \
     iptables \
     bzip2 \    
-    jq --no-install-recommends
+    jq unzip --no-install-recommends
 
 RUN curl -sSL https://get.docker.com/ | sh
