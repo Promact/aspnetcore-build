@@ -30,3 +30,5 @@ RUN apt-get update -qq && apt-get install -qqy \
     jq unzip --no-install-recommends
 
 RUN curl -sSL https://get.docker.com/ | sh
+
+RUN pip install awscli --upgrade
