@@ -29,6 +29,7 @@ RUN apt-get update -qq && apt-get install -qqy \
     bzip2 \
     python-pip \
     unzip \
+    python-setuptools \
     libfontconfig \
     jq --no-install-recommends
 
