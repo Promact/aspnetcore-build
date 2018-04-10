@@ -35,3 +35,7 @@ RUN apt-get update -qq && apt-get install -qqy \
 RUN curl -sSL https://get.docker.com/ | sh
 
 RUN pip install awscli --upgrade
+
+RUN curl -sSL https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/4.1.1.1164/sonar-scanner-msbuild-4.1.1.1164-netcoreapp2.0.zip --output sonar.zip \
+  && unzip sonar.zip -d /opt/sonar \
+  && rm -rf sonar.zip
