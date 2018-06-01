@@ -34,7 +34,7 @@ RUN apt-get update -qq && apt-get install -qqy \
 
 RUN curl -sSL https://get.docker.com/ | sh
 
-RUN pip install pip --upgrade && pip install wheel --upgrade && pip install awscli --upgrade
+RUN pip install awscli --upgrade
 
 # Default to UTF-8 file.encoding
 ENV LANG C.UTF-8
