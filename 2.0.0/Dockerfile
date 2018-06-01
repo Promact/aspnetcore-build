@@ -1,12 +1,12 @@
-FROM microsoft/dotnet:2.0.6-sdk-2.1.101-stretch
+FROM microsoft/dotnet:2.0.7-sdk-2.1.200-stretch
 
 # set up environment
 ENV ASPNETCORE_URLS http://+:80
-ENV ASPNETCORE_PKG_VERSION 2.0.6
+ENV ASPNETCORE_PKG_VERSION 2.0.8
 
 # set up node
-ENV NODE_VERSION 8.11.1
-ENV NODE_DOWNLOAD_SHA 0e20787e2eda4cc31336d8327556ebc7417e8ee0a6ba0de96a09b0ec2b841f60
+ENV NODE_VERSION 8.11.2
+ENV NODE_DOWNLOAD_SHA 67dc4c06a58d4b23c5378325ad7e0a2ec482b48cea802252b99ebe8538a3ab79
 ENV NODE_DOWNLOAD_URL https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz
 
 RUN curl -SL "$NODE_DOWNLOAD_URL" --output nodejs.tar.gz \
@@ -30,8 +30,7 @@ RUN apt-get update -qq && apt-get install -qqy \
     python-pip \
     unzip \
     python-setuptools \
-    libfontconfig \
-    jq --no-install-recommends
+    --no-install-recommends
 
 RUN curl -sSL https://get.docker.com/ | sh
 
@@ -86,6 +85,6 @@ RUN set -ex; \
 # see CA_CERTIFICATES_JAVA_VERSION notes above
 RUN /var/lib/dpkg/info/ca-certificates-java.postinst configure
 
-RUN curl -sSL https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/4.1.1.1164/sonar-scanner-msbuild-4.1.1.1164-netcoreapp2.0.zip --output sonar.zip \
+RUN curl -sSL https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/4.2.0.1214/sonar-scanner-msbuild-4.2.0.1214-netcoreapp2.0.zip --output sonar.zip \
   && unzip sonar.zip -d /opt/sonar \
   && rm -rf sonar.zip
