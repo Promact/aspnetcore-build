@@ -29,7 +29,7 @@ RUN apt-get update -qq && apt-get install -qqy \
     bzip2 \
     python-pip \
     unzip \
-    python-setuptools \
+    python-setuptools jq \
     --no-install-recommends
 
 RUN curl -sSL https://get.docker.com/ | sh
