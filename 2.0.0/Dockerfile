@@ -5,8 +5,8 @@ ENV ASPNETCORE_URLS http://+:80
 ENV ASPNETCORE_PKG_VERSION 2.0.8
 
 # set up node
-ENV NODE_VERSION 8.11.2
-ENV NODE_DOWNLOAD_SHA 67dc4c06a58d4b23c5378325ad7e0a2ec482b48cea802252b99ebe8538a3ab79
+ENV NODE_VERSION 8.11.3
+ENV NODE_DOWNLOAD_SHA 1ea408e9a467ed4571730e160993f67a100e8c347f6f9891c9a83350df2bf2be
 ENV NODE_DOWNLOAD_URL https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz
 
 RUN curl -SL "$NODE_DOWNLOAD_URL" --output nodejs.tar.gz \
@@ -53,8 +53,8 @@ RUN { \
 RUN ln -svT "/usr/lib/jvm/java-8-openjdk-$(dpkg --print-architecture)" /docker-java-home
 ENV JAVA_HOME /docker-java-home/jre
 
-ENV JAVA_VERSION 8u171
-ENV JAVA_DEBIAN_VERSION 8u171-b11-1~deb9u1
+ENV JAVA_VERSION 8u181
+ENV JAVA_DEBIAN_VERSION 8u181-b13-1~deb9u1
 
 # see https://bugs.debian.org/775775
 # and https://github.com/docker-library/java/issues/19#issuecomment-70546872
@@ -85,6 +85,4 @@ RUN set -ex; \
 # see CA_CERTIFICATES_JAVA_VERSION notes above
 RUN /var/lib/dpkg/info/ca-certificates-java.postinst configure
 
-RUN curl -sSL https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/4.2.0.1214/sonar-scanner-msbuild-4.2.0.1214-netcoreapp2.0.zip --output sonar.zip \
-  && unzip sonar.zip -d /opt/sonar \
-  && rm -rf sonar.zip
+RUN dotnet tool install --global dotnet-sonarscanner --version 4.3.1
