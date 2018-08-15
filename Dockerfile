@@ -1,8 +1,8 @@
 FROM microsoft/dotnet:2.1-sdk
 
 # set up node
-ENV NODE_VERSION 8.11.2
-ENV NODE_DOWNLOAD_SHA 67dc4c06a58d4b23c5378325ad7e0a2ec482b48cea802252b99ebe8538a3ab79
+ENV NODE_VERSION 8.11.3
+ENV NODE_DOWNLOAD_SHA 1ea408e9a467ed4571730e160993f67a100e8c347f6f9891c9a83350df2bf2be
 ENV NODE_DOWNLOAD_URL https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz
 
 RUN curl -SL "$NODE_DOWNLOAD_URL" --output nodejs.tar.gz \
@@ -49,8 +49,8 @@ RUN { \
 RUN ln -svT "/usr/lib/jvm/java-8-openjdk-$(dpkg --print-architecture)" /docker-java-home
 ENV JAVA_HOME /docker-java-home/jre
 
-ENV JAVA_VERSION 8u171
-ENV JAVA_DEBIAN_VERSION 8u171-b11-1~deb9u1
+ENV JAVA_VERSION 8u181
+ENV JAVA_DEBIAN_VERSION 8u181-b13-1~deb9u1
 
 # see https://bugs.debian.org/775775
 # and https://github.com/docker-library/java/issues/19#issuecomment-70546872
