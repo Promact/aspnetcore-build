@@ -81,6 +81,4 @@ RUN set -ex; \
 # see CA_CERTIFICATES_JAVA_VERSION notes above
 RUN /var/lib/dpkg/info/ca-certificates-java.postinst configure
 
-RUN curl -sSL https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/4.2.0.1214/sonar-scanner-msbuild-4.2.0.1214-netcoreapp2.0.zip --output sonar.zip \
-  && unzip sonar.zip -d /opt/sonar \
-  && rm -rf sonar.zip
+RUN dotnet tool install --global dotnet-sonarscanner --version 4.3.1
