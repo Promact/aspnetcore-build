@@ -1,8 +1,8 @@
 FROM microsoft/dotnet:2.1-sdk
 
 # set up node
-ENV NODE_VERSION 8.11.3
-ENV NODE_DOWNLOAD_SHA 1ea408e9a467ed4571730e160993f67a100e8c347f6f9891c9a83350df2bf2be
+ENV NODE_VERSION 10.12.0
+ENV NODE_DOWNLOAD_SHA 8d13d57aaf95177e97d29c0944d79a17de8c3a31ba3fe88d1846cfd907e52111
 ENV NODE_DOWNLOAD_URL https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz
 
 RUN curl -SL "$NODE_DOWNLOAD_URL" --output nodejs.tar.gz \
@@ -81,4 +81,4 @@ RUN set -ex; \
 # see CA_CERTIFICATES_JAVA_VERSION notes above
 RUN /var/lib/dpkg/info/ca-certificates-java.postinst configure
 
-RUN dotnet tool install --global dotnet-sonarscanner --version 4.3.1
+RUN dotnet tool install --global dotnet-sonarscanner --version 4.4.2
