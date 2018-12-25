@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:2.2-sdk
+FROM microsoft/dotnet:2.1-sdk
 
 # set up node
 ENV NODE_VERSION 10.14.1
@@ -81,4 +81,4 @@ RUN set -ex; \
 # see CA_CERTIFICATES_JAVA_VERSION notes above
 RUN /var/lib/dpkg/info/ca-certificates-java.postinst configure
 
-RUN dotnet tool install --global --framework netcoreapp2.2 dotnet-sonarscanner --version 4.5.0
+RUN dotnet tool install --global --framework netcoreapp2.1 dotnet-sonarscanner --version 4.5.0
