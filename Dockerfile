@@ -49,12 +49,10 @@ RUN { \
 RUN ln -svT "/usr/lib/jvm/java-8-openjdk-$(dpkg --print-architecture)" /docker-java-home
 ENV JAVA_HOME /docker-java-home/jre
 
-ENV JAVA_VERSION 8u181
-ENV JAVA_DEBIAN_VERSION 8u181-b13-2~deb9u1
+ENV JAVA_VERSION 8u212
+ENV JAVA_DEBIAN_VERSION 8u212-b01-1~deb9u1
 
-# see https://bugs.debian.org/775775
-# and https://github.com/docker-library/java/issues/19#issuecomment-70546872
-ENV CA_CERTIFICATES_JAVA_VERSION 20170531+nmu1
+
 
 RUN set -ex; \
 	\
@@ -66,7 +64,6 @@ RUN set -ex; \
 	apt-get update; \
 	apt-get install -y \
 		openjdk-8-jre="$JAVA_DEBIAN_VERSION" \
-		ca-certificates-java="$CA_CERTIFICATES_JAVA_VERSION" \
 	; \
 	rm -rf /var/lib/apt/lists/*; \
 	\
@@ -77,8 +74,5 @@ RUN set -ex; \
 	update-alternatives --get-selections | awk -v home="$(readlink -f "$JAVA_HOME")" 'index($3, home) == 1 { $2 = "manual"; print | "update-alternatives --set-selections" }'; \
 # ... and verify that it actually worked for one of the alternatives we care about
 	update-alternatives --query java | grep -q 'Status: manual'
-
-# see CA_CERTIFICATES_JAVA_VERSION notes above
-RUN /var/lib/dpkg/info/ca-certificates-java.postinst configure
 
 RUN dotnet tool install --global dotnet-sonarscanner
