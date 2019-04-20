@@ -1,8 +1,8 @@
 FROM microsoft/dotnet:2.2-sdk
 
 # set up node
-ENV NODE_VERSION 10.14.1
-ENV NODE_DOWNLOAD_SHA 2cc1a9b118e5d660cd6611c808f0cd80821c79ea5990c221b78124770f4dc38e  
+ENV NODE_VERSION 11.14.0
+ENV NODE_DOWNLOAD_SHA 0d5c078137c992a919898c8fda7e5af40118f355bb938fccfd5aecddaf2dc123  
 ENV NODE_DOWNLOAD_URL https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz
 
 RUN curl -SL "$NODE_DOWNLOAD_URL" --output nodejs.tar.gz \
@@ -81,4 +81,4 @@ RUN set -ex; \
 # see CA_CERTIFICATES_JAVA_VERSION notes above
 RUN /var/lib/dpkg/info/ca-certificates-java.postinst configure
 
-RUN dotnet tool install --global --framework netcoreapp2.2 dotnet-sonarscanner --version 4.5.0
+RUN dotnet tool install --global dotnet-sonarscanner
