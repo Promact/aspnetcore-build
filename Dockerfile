@@ -75,4 +75,4 @@ RUN set -ex; \
 # ... and verify that it actually worked for one of the alternatives we care about
 	update-alternatives --query java | grep -q 'Status: manual'
 
-RUN dotnet tool install --global dotnet-sonarscanner
+RUN npm i -g typescript
