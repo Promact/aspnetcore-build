@@ -2,7 +2,7 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.1
 
 # set up node
 ENV NODE_VERSION 14.15.4
-ENV NODE_DOWNLOAD_SHA 0d5c078137c992a919898c8fda7e5af40118f355bb938fccfd5aecddaf2dc123
+ENV NODE_DOWNLOAD_SHA b51c033d40246cd26e52978125a3687df5cd02ee532e8614feff0ba6c13a774f
 ENV NODE_DOWNLOAD_URL https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz
 
 RUN curl -SL "$NODE_DOWNLOAD_URL" --output nodejs.tar.gz \
